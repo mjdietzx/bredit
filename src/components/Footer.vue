@@ -1,14 +1,14 @@
 <template>
-  <footer class="bg-white">
+  <footer class="bg-dark-0 border-t border-dark-2">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
       <div class="flex justify-center space-x-6 md:order-2">
-        <a v-for="item in footer" :key="item.name" :href="item.href" class="text-gray-400 hover:text-gray-500">
+        <a v-for="item in footer" :key="item.name" :href="item.href" class="text-gray-200 hover:text-gray-300">
           <span class="sr-only">{{ item.name }}</span>
           <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
         </a>
       </div>
       <div class="mt-8 md:mt-0 md:order-1">
-        <p class="text-center text-base text-gray-400">&copy; 2021 Bredit, Inc. All rights reserved.</p>
+        <p class="text-center text-base text-gray-200">&copy; 2021 Bredit, Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

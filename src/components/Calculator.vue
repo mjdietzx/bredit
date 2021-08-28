@@ -1,22 +1,33 @@
 <template>
   <div class="mt-8 sm:flex">
-    <div>
-      <p>Try our calculator and play around with different loan start dates to see how you would have done with Bitcoin buys enabled!</p>
-      <p>A 1 year, $1k Bredit loan, taken out on</p>
-      <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="date" v-model="start" name="start" id="start" class="block w-full pr-10 focus:outline-none sm:text-sm rounded-md" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500': error }" placeholder="MM/YYYY" aria-invalid="true" aria-describedby="email-error" />
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-          <ExclamationCircleIcon v-if="error" class="h-5 w-5 text-red-500" aria-hidden="true" />
+    <div class="text-light flex flex-col items-center justify-center">
+      <p class="text-4xl font-bold text-center ">Try our calculator and play around with different loan start dates to see how you would have done with Bitcoin buys enabled!</p>
+      <p class="mt-10 mb-4 text-lg">A 1 year, $1k Bredit loan, taken out on</p>
+      <div class="w-full flex items-center justify-center my-4">
+        <div class="md:w-1/2 flex items-center border rounded border-white border-opacity-30">
+          <input type="date" v-model="start" name="start" id="start" class="appearance-none text-white rounded border-0 bg-transparent w-full p-4">
+          <button @click="run"  class="p-2 flex-none mr-2 rounded text-black font-semibold bg-primary" type="button" name="button">Calculate</button>
         </div>
       </div>
+      <!-- <div class="flex items-center">
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <input type="date" v-model="start" name="start" id="start" class="boxShadow bg-dark-2 w-full px-5 py-3 placeholder-gray-300 border-transparent focus:ring-primary focus:border-primary sm:max-w-xs rounded-md" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500': error }" placeholder="MM/YYYY" aria-invalid="true" aria-describedby="email-error" />
+          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <ExclamationCircleIcon v-if="error" class="h-5 w-5 text-red-500" aria-hidden="true" />
+          </div>
+        </div>
+        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+          <button @click="run" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-dark-2 bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Calculate</button>
+        </div>
+      </div> -->
       <p v-if="error" class="mt-2 text-sm text-red-600" id="email-error">{{ error }}</p>
-      <p>would have resulted in {{ result.balance ? result.balance.toFixed(2) : '_' }} Bitcoin released to you after your last monthly payment on {{ result.end || '_' }} (worth {{ result.value ? result.value.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }} at this time).</p>
-      <p>Your monthly payment over the course of this loan was {{ result.payment ? result.payment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }}, and you would have paid a total of {{ result.paid ? result.paid.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }} inclusive of all fees.</p>
-      <p>We encourage you to play around with more historical start dates to help determine if you want Bitcoin buys turned on!</p>
+      <div class="text-lg text-center mt-4">
+        <p>would have resulted in {{ result.balance ? result.balance.toFixed(2) : '_' }} Bitcoin released to you after your last monthly payment on {{ result.end || '_' }} (worth {{ result.value ? result.value.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }} at this time).</p>
+        <p>Your monthly payment over the course of this loan was {{ result.payment ? result.payment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }}, and you would have paid a total of {{ result.paid ? result.paid.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '_' }} inclusive of all fees.</p>
+        <p>We encourage you to play around with more historical start dates to help determine if you want Bitcoin buys turned on!</p>
+      </div>
     </div>
-    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-      <button @click="run" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Calculate</button>
-    </div>
+
   </div>
 </template>
 
@@ -43,6 +54,7 @@
     },
     methods: {
       run: function () {
+
         if (!this.start.match(/^\d{2}\/\d{4}$/g)) {
           this.error = 'Format must be MM/YYYY'
           return
