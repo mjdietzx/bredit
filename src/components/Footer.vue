@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-dark-0 border-t border-dark-2">
+  <footer class="w-full">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
       <div class="flex justify-center space-x-6 md:order-2">
         <a v-for="item in footer" :key="item.name" :href="item.href" class="text-gray-200 hover:text-gray-300">

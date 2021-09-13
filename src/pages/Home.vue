@@ -14,15 +14,10 @@
           <p class="mt-10 flex-none text-center text-4xl md:text-7xl font-black text-white">Build credit. Save bitcoin.</p>
           <p class="text-white text-center my-10 md:text-xl md:w-4/5 opacity-90">We give you a loan, structured as a savings plan, that builds your credit score while earning you Bitcoin. Unlike other credit building programs, we ditched Wall Street and plug directly into Bitcoin ⚡️ to minimize fees and maximize your returns. Welcome to the future of finance 🤝</p>
           <div class="w-full flex items-center justify-center">
-            <div class="md:w-1/2 flex items-center border rounded border-white border-opacity-30">
-              <input id="emailAddress" name="email" type="email" autocomplete="email" required="" placeholder="Enter your Email Address" class="appearance-none text-white rounded border-0 bg-transparent w-full p-4">
-              <button class="p-2 flex-none mr-2 rounded text-black font-semibold bg-primary" type="button" name="button">Stay Connected</button>
-            </div>
+            <Subscribe></Subscribe>
           </div>
         </div>
       </div>
-
-
 
       <div id="product" class="lg:lg:px-40 md:px-20 px-8 md:px-20 px-8 py-20 bg-black bg-opacity-50">
         <div class="flex flex-col items-center justify-center bg-gradient-50 rounded-lg">
@@ -56,7 +51,7 @@
             <p class="flex-none text-xl font-bold">Save Bitcoin</p>
             <div class="h-px w-full ml-4 bg-white bg-opacity-25"></div>
           </div>
-          <p class="px-4 text-lg mr-auto mb-12 text-gray-200">As the Federal Reserve prints money (*sometimes referred to as money printer go brrr) it devalues the purchasing power and savings of those who hold it. Don't pay the opportunity cost of locking savings in USD like other credit builder programs will force you to do. Save in bitcoin and stack sats 💪</p>
+          <p class="px-4 text-lg mr-auto mb-12 text-gray-200">As the Federal Reserve prints dollars (*sometimes referred to as money printer go brrr) they devalue the purchasing power and savings of those who hold those very dollars. Don't pay the opportunity cost of locking savings in USD like other credit builder programs will force you to do. Save in bitcoin and stack sats.</p>
           <div class="flex md:flex-row flex-col">
             <div v-for="item in communicationFeatures" :key="item.id" class="flex flex-col mb-6 lg:mb-0 md:w-1/3 px-4 flex-grow">
               <div class="border-2 border-opacity-20 shadow border-white p-6 rounded-lg flex-grow bg-white bg-opacity-10">
@@ -165,7 +160,7 @@
          </div>
        </div>
      </div>
-
+     <Footer></Footer>
     </div>
   </div>
 </template>
@@ -183,6 +178,7 @@
   import CssBlob2 from '/src/components/CssBlob2.vue'
   import CircleBlob from '/src/components/CircleBlob.vue'
   import CircleBlob2 from '/src/components/CircleBlob2.vue'
+  import Subscribe from '/src/components/Subscribe.vue'
 
   import faqs from '/src/content/faqs.json'
 
@@ -272,7 +268,7 @@
     },
     {
       id: 3,
-      name: 'Crypto Native',
+      name: 'Bitcoin Native',
       description: 'As you pay down your loan with each monthly payment, supercharge your savings by converting the principal of the loan payment into Bitcoin. We programmatically handle this for you 🤝',
       icon: LightningBoltIcon,
     },
@@ -308,7 +304,8 @@
       CssBlob,
       CircleBlob,
       CssBlob2,
-      CircleBlob2
+      CircleBlob2,
+      Subscribe
     },
     setup() {
       const open = ref(false)
