@@ -1,0 +1,22 @@
+service: subscribes
+
+provider:
+  name: aws
+  profile: nodeal-admin
+  region: us-east-1
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'production'}
+
+  memorySize: 128
+  timeout: 3  # provide enough room to process an HTTP API request (of which timeout is limited to 29s)
+
+  httpApi:
+    cors: true
+
+functions:
+  subscribes:
+    handler: handler.callback
+    events:
+      - httpApi:
+          method: post
+          path: /subscribes

@@ -1,0 +1,53 @@
+service: cdn
+
+provider:
+  name: aws
+  profile: nodeal-admin
+  region: us-east-1
+  stage: ${opt:stage, 'production'}
+
+resources:
+  Resources:
+    Logs:
+      DeletionPolicy: Retain
+      Type: AWS::S3::Bucket
+
+    #
+    # source ~/cli-ve/bin/activate
+    # production: aws --region us-east-1 --profile nodeal-admin cloudfront create-invalidation --distribution-id E2EGFR880O4J --paths '/*'
+    #
+
+    Cloudfront:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Aliases:
+            - bredit.com
+          DefaultCacheBehavior:
+            Compress: true
+            ForwardedValues:
+              Cookies:
+                Forward: none
+              Headers:
+                - CloudFront-Viewer-Country
+              QueryString: false
+            TargetOriginId: ${self:service}-${self:provider.stage}
+            ViewerProtocolPolicy: redirect-to-https
+          DefaultRootObject: index.html
+          Enabled: true
+          HttpVersion: http2
+          IPV6Enabled: true
+          Logging:
+            Bucket:
+              Fn::GetAtt: [ Logs, DomainName ]
+            IncludeCookies: true
+          Origins:
+            - DomainName: frontend-production-frontend-1vtsy72n4h1xv.s3.amazonaws.com
+              Id: ${self:service}-${self:provider.stage}
+              S3OriginConfig:
+                OriginAccessIdentity: origin-access-identity/cloudfront/E3FJAS27KM5RMT
+          PriceClass: PriceClass_All
+          ViewerCertificate:
+            AcmCertificateArn: arn:aws:acm:us-east-1:729200440781:certificate/1f656a30-cdce-4efc-ba71-416447092236
+            MinimumProtocolVersion: TLSv1.2_2018
+            SslSupportMethod: sni-only
