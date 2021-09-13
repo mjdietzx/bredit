@@ -27,7 +27,7 @@
       <div id="product" class="lg:lg:px-40 md:px-20 px-8 md:px-20 px-8 py-20 bg-black bg-opacity-50">
         <div class="flex flex-col items-center justify-center bg-gradient-50 rounded-lg">
           <h2 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-light sm:text-4xl">A first step towards establishing credit and building wealth</h2>
-          <p class="mt-8 max-w-3xl mx-auto text-center text-xl text-gray-200">Credit-builder loans are designed to give people with little or no credit a chance to build up their score. These loans are like a savings plan that usually come at a cost. We aim to reduce this cost to the point where this loan is actually paying you. We are able to do this by building on top of Bitcoin and being at the forefront of financial technology.</p>
+          <p class="mt-8 max-w-3xl mx-auto text-center text-xl text-gray-200">Credit-builder loans are designed to give people with little or no credit a chance to build up their score. These loans are like a savings plan that usually come at a cost. We aim to change this to the point where this loan is investing in YOU. We are able to do this by building on top of Bitcoin and being at the forefront of financial technology.</p>
         </div>
 
         <div class="w-full flex flex-col items-center py-20">
@@ -73,8 +73,16 @@
         </div>
 
         <div class="">
-          <Calculator />
+           <Story v-for="story in stories"
+                  :key="story.id"
+                  :content="story.content"
+                  :image="story.image">
+           </Story>
         </div>
+
+        <!-- <div class="">
+          <Calculator />
+        </div> -->
       </div>
 
       <div id="blog" class="my-20 mx-8 md:mx-20 lg:mx-40">
@@ -169,13 +177,12 @@
 
   import Header from '/src/components/Header.vue'
   import Footer from '/src/components/Footer.vue'
+  import Story from '/src/components/Story.vue'
   import Calculator from '/src/components/Calculator.vue'
   import CssBlob from '/src/components/CssBlob.vue'
   import CssBlob2 from '/src/components/CssBlob2.vue'
   import CircleBlob from '/src/components/CircleBlob.vue'
   import CircleBlob2 from '/src/components/CircleBlob2.vue'
-
-
 
   import faqs from '/src/content/faqs.json'
 
@@ -227,23 +234,46 @@
     },
   ]
 
+  const stories = [
+    {
+      id: 1,
+      content: 'John is a 19 year old young man who is hoping to open a credit card. Unfortunately, John doesn’t have any established credit history and therefore is struggling to find a credit card company who will take a chance on him.',
+      image: "/confused.jpg",
+    },
+    {
+      id: 2,
+      content: 'Unfortunately for John, he doesn’t have a parental figure with a ‘good’ credit score who is willing to co-authorize an account for him. In the past, this has left John with limited options to begin his credit journey.',
+      image: "/alone.jpg",
+    },
+    {
+      id: 3,
+      content: 'John comes to Bredit and opens a credit builder loan, approved instantly.',
+      image: "/approved.jpg",
+    },
+    {
+      id: 4,
+      content: 'After multiple on-time payments, John is able to apply and get accepted for a credit card, thanks to Bredit. All while supercharging his savings!',
+      image: "/credit.jpg",
+    },
+  ]
+
   const transferFeatures = [
     {
       id: 1,
-      name: 'No credit score or history required',
-      description: "We don't even do a credit check - link any US bank account and we can approve you instantly.",
+      name: 'No Credit Score or History Required',
+      description: "We don't even do a hard credit pull - link any US bank account and we can approve you instantly.",
       icon: GlobeAltIcon,
     },
     {
       id: 2,
       name: 'No hidden fees',
-      description: 'We charge a simple monthly subscription cost. There are no other fees. A few dollars a month until your loan is paid off.',
+      description: 'We charge a one-time origination fee to open the loan. After the origination fee is paid, you simply pay off the loan, monthly, at the agreed upon fixed interest rate.',
       icon: ScaleIcon,
     },
     {
       id: 3,
-      name: 'Crypto-native',
-      description: 'Any sufficiently advanced technology is indistinguishable from magic. We build on these advances to turbocharge your finances.',
+      name: 'Crypto Native',
+      description: 'As you pay down your loan with each monthly payment, supercharge your savings by converting the principal of the loan payment into Bitcoin. We programmatically handle this for you 🤝',
       icon: LightningBoltIcon,
     },
   ]
@@ -251,8 +281,8 @@
   const communicationFeatures = [
     {
       id: 1,
-      name: 'Saving in Bitcoin is a wealth multiplier',
-      description: "Steadily convert your dollars to Bitcoin savings as you pay down your loan. When you've finished paying your loan you can withdraw your stack of Bitcoin which may be worth far more than the total of payments you made. Over the last three years, saving $50 per week in Bitcoin turned $7,850 into $59,929.",
+      name: 'Saving Bitcoin is a Wealth Multiplier',
+      description: 'Steadily convert your dollars to Bitcoin savings as you pay down your loan. When you\'ve finished paying your loan you can withdraw your stack of Bitcoin.',
       icon: AnnotationIcon,
     },
     {
@@ -273,6 +303,7 @@
       PhoneIcon,
       Header,
       Footer,
+      Story,
       Calculator,
       CssBlob,
       CircleBlob,
@@ -288,6 +319,7 @@
         transferFeatures,
         communicationFeatures,
         posts,
+        stories,
       }
     },
   }

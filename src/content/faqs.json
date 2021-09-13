@@ -1,27 +1,15 @@
 [
   {
-    "question": "Why is the credit builder plan a loan if I can’t access any money up front?",
-    "answer": "It's a loan because we give you money and you have to pay it back, even though you can't access it right away. We give it to you by putting it into your interest generating account. You can't access it until you pay back the entire amount, but you will earn interest until you withdraw it. The beauty of this structure is that we're able to report the payments to the credit bureaus to help you build credit."
+    "question": "What is a credit builder loan?",
+    "answer": "It’s a loan designed to repair/build your credit score. We give you the loan by placing it in an interest generating account with our banking partner. As the loan is paid off we programmatically convert your USD into BTC, held at our BTC custody provider. As the loan is paid off monthly, we report the on-time monthly payment to the 3 main credit bureaus. Showing on-time payment history while supercharging your savings."
   },
   {
-    "question": "Is my credit score guaranteed to go up with a credit builder plan?",
-    "answer": "We wish it was! Unfortunately, everyone’s credit profile is different and we cannot guarantee that you will see a credit score increase. Credit bureaus calculate credit scores by using formulas that consider many factors. Bredit cannot promise that taking out a Credit Builder Plan will increase your credit score because of the potential effects of all the factors, including whether you make all your loan payments on time, your performance on your other credit accounts, and how long your credit accounts have been open. However, payment history is an important component of your credit score and taking out a credit builder plan gives you the opportunity to add more on-time payments to your credit profile!"
-  },
-  {
-    "question": "How does the $1/month charge work?",
-    "answer": "Your loan payments are due monthly, so the plan fee is $1 per payment, for as long as your loan is open. The plan fee is paid first. In other words, payments are first applied to the plan fee, as specified in your loan agreement."
-  },
-  {
-    "question": "What's the catch? Why are your rates so low?",
-    "answer": "When you sign up for our credit builder plan, you are saying “Yes” to a better financial future by building savings – and we believe you deserve a lower rate for making that choice. Further, the interest generating account acts as a security deposit in case a customer does not fully repay their loan, lowering our lending risk."
-  },
-  {
-    "question": "Why can’t I access all of my money right away?",
-    "answer": "When you sign up for our credit builder plan, you are signing up for a loan that is partly locked in a savings account. We do this to give you a lower rate, help you build savings, and to help protect us against a customer who does not fully repay their loan. Repeat customers may be eligible to access more money up front and require less to be secured in their savings account."
+    "question": "Is my credit score guaranteed to go up with a credit builder loan?",
+    "answer": "In a perfect world, yes. Unfortunately, we can’t guarantee that your credit score will increase throughout the life of the loan. Credit bureaus calculate credit scores by using formulas that consider many factors. Bredit cannot promise that taking out a Credit Builder Plan will increase your credit score because of the potential effects of all the factors, including whether you make all your loan payments on time, your performance on your other credit accounts, and how long your credit accounts have been open. However, payment history is an important component of your credit score and taking out a credit builder plan gives you the opportunity to add more on-time payments to your credit profile!"
   },
   {
     "question": "What if I am late on a loan payment?",
-    "answer": "Missed or late loan payments will be reported to the credit bureaus. If you don’t have a long credit history, one late payment can make a big impact. To avoid paying late, set up automatic payments to use funds from your bank account to pay your credit builder loan. Check to make sure the monthly payment went through, and use calendar reminders as an extra precaution. That said, we understand that life happens. So if you know you will not be able to make a loan payment on time, please contact us as soon as possible so we can help you defer your next payment.  The easiest way you can defer a payment is by using the chat functionality in your mobile app.  Just open the Chatbot on the home screen by clicking 'Tap for help' and type 'defer loan payment' to get started."
+    "answer": "Missed or late loan payments will be reported to the credit bureaus. If you don’t have a long credit history, one late payment can make a big impact. To avoid paying late, set up automatic payments to use funds from your bank account to pay your credit builder loan. Check to make sure the monthly payment went through, and use calendar reminders as an extra precaution. That said, we understand that life happens. So if you know you will not be able to make a loan payment on time, please contact us as soon as possible so we can help you defer your next payment. "
   },
   {
     "question": "What happens to my credit score if I close my account?",
